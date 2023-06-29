@@ -6,11 +6,10 @@ import time
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
 NUMBERS_ROWS = 9
 URL = "https://disk.yandex.ru/d/b5nKyNk4NgOohQ"
-admins = [5403985984]
-channel_id = -1001882163598
+channel_id = "айди канала"
 
-openai.api_key = "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"
-bot = telebot.TeleBot('5667067959:AAHIZeUoJ_k5zDoMjtJ0Byxyph63zE0TRmQ')
+openai.api_key = "токен самого чата"
+bot = telebot.TeleBot('токен бота в тг')
 
 if not os.path.exists("users"):
     os.mkdir("users")
@@ -44,7 +43,7 @@ def admin_panel(call):
         bot.send_message(chat_id=call.message.chat.id, text='Вы вышли из панели администратора', reply_markup=keyboard)    
     
     
-#workkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+#comands
 @bot.message_handler(content_types=['text']) #создаем команду
 def msg(message):
     if f"{message.chat.id}.txt" not in os.listdir('users'):
@@ -61,7 +60,7 @@ def msg(message):
     
     
     
-    #panel inline############################################################################################
+    #panel ############################################################################################
     if message.text == 'DARK🔦':
         return bot.send_message(chat_id=message.chat.id, text='Никогда не открывай меня\nhttps://disk.yandex.ru/d/b5nKyNk4NgOohQ\n\n\n❤️Перезапустить бота - /start')
     
@@ -77,7 +76,6 @@ def msg(message):
     
     if message.text =="Creator💾":
         return bot.send_message(chat_id=message.chat.id, text='All fixes by @EurozX 🔧\n\n\n❤️Перезапустить бота - /start')
-    #fake clear history ###################################################################################
     
     #all links in bot
     if message.text == '/links':
